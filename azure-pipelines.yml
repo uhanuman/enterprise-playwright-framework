@@ -1,0 +1,68 @@
+trigger:
+  - main
+  - develop
+
+pr:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: ENVIRONMENT
+    value: dev
+  - name: OUTPUT_DIR
+    value: output
+  - name: LOG_LEVEL
+    value: info
+  - name: REDACT_SECRETS
+    value: 'true'
+  - name: WORKERS
+    value: 4
+  - name: ENABLE_AI
+    value: 'false'
+  - name: CI
+    value: 'true'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '22.x'
+    displayName: 'Install Node.js'
+
+  - script: npm ci
+    displayName: 'Install dependencies'
+
+  - script: npx playwright install --with-deps chromium
+    displayName: 'Install Playwright browsers'
+
+  - script: npm run lint
+    displayName: 'Lint / typecheck'
+
+  - script: npm run security:scan
+    displayName: 'Security scan'
+
+  - script: npx playwright test --workers=$(WORKERS)
+    displayName: 'Run Playwright tests'
+    continueOnError: true
+
+  - script: npm run test:bdd
+    displayName: 'Run BDD tests'
+    continueOnError: true
+
+  - script: npm run quality:gate
+    displayName: 'Quality gate'
+    condition: always()
+
+  - task: PublishTestResults@2
+    condition: always()
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'output/**/junit.xml'
+      mergeTestResults: true
+
+  - task: PublishPipelineArtifact@1
+    condition: always()
+    inputs:
+      targetPath: 'output'
+      artifactName: 'playwright-output'

@@ -1,0 +1,3 @@
+email,password,role
+user1@example.com,pass123,admin
+user2@example.com,pass456,viewer

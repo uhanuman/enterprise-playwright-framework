@@ -1,0 +1,10 @@
+{
+  "firstName": { "locator": "#firstName", "type": "textbox" },
+  "lastName": { "locator": "#lastName", "type": "textbox" },
+  "email": { "locator": "#email", "type": "textbox" },
+  "age": { "locator": "#age", "type": "textbox" },
+  "gender": { "locator": "#gender", "type": "radio" },
+  "country": { "locator": "#country", "type": "dropdown" },
+  "terms": { "locator": "#terms", "type": "checkbox" },
+  "submit": { "locator": "#submit", "type": "click" }
+}
