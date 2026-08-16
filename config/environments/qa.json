@@ -1,0 +1,5 @@
+{
+  "baseUrl": "https://qa.example.com",
+  "apiBaseUrl": "https://qa-api.example.com",
+  "timeout": 45000
+}

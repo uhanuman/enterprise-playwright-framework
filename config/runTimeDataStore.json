@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "global": {
+      "token": "",
+      "baseUrl": "http://localhost:3000"
+    },
+    "travel": {
+      "acknowledgement-no-generated-in-current-session": ""
+    },
+    "test_1": {
+      "id": "dynamic-id-1"
+    },
+    "test_2": {
+      "id": "dynamic-id-2"
+    }
+  },
+  "qa": {
+    "global": {
+      "token": "",
+      "baseUrl": "https://qa.example.com"
+    },
+    "travel": {
+      "acknowledgement-no-generated-in-current-session": ""
+    },
+    "test_1": {
+      "id": "dynamic-id-1"
+    },
+    "test_2": {
+      "id": "dynamic-id-2"
+    }
+  }
+}

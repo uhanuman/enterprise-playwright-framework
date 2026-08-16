@@ -1,0 +1,10 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "JohnDoe@mailinator.com",
+  "age": "21",
+  "gender": "male",
+  "country": "India",
+  "terms": true,
+  "submit": ""
+}

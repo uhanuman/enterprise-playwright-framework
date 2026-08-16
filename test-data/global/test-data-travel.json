@@ -1,0 +1,7 @@
+{
+  "acknowledgement": "{{acknowledgement-no-generated-in-current-session}}",
+  "visaDate": "{{TODAY-20}}",
+  "startDate": "{{TODAY+10}}",
+  "endDate": "{{TODAY+365}}",
+  "referenceId": "{{RUNTIME.travel.acknowledgement-no-generated-in-current-session}}"
+}
