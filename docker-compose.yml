@@ -1,0 +1,18 @@
+services:
+  playwright:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: enterprise-playwright-framework:local
+    environment:
+      CI: "true"
+      ENVIRONMENT: ${ENVIRONMENT:-dev}
+      OUTPUT_DIR: ${OUTPUT_DIR:-output}
+      WORKERS: ${WORKERS:-1}
+      BASE_URL: ${BASE_URL:-http://host.docker.internal:3000}
+      API_BASE_URL: ${API_BASE_URL:-http://host.docker.internal:8080/api}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      REDACT_SECRETS: ${REDACT_SECRETS:-true}
+      ENABLE_AI: ${ENABLE_AI:-false}
+    volumes:
+      - ./output:/workspaces/enterprise-playwright-framework/output

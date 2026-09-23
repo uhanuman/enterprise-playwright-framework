@@ -1,0 +1,12 @@
+.git
+.github
+.vscode
+node_modules
+output
+test-results
+playwright-report
+coverage
+*.log
+.env
+.env.*
+!.env.example

@@ -29,6 +29,22 @@ npm run test:bdd    # run the Gherkin sample suite (2 tests)
 
 Copy `.env.example` to `.env` and adjust. See [Environment variables](#environment-variables).
 
+### Run in Docker
+
+The repository includes a pinned Playwright image and a Compose service. Build the image and run the default suite with:
+
+```bash
+docker compose up --build --abort-on-container-exit --exit-code-from playwright
+```
+
+Run the BDD suite instead:
+
+```bash
+docker compose run --rm playwright npm run test:bdd
+```
+
+Test reports and artifacts are written to the host `output/` directory. For an application running on the host, the default Docker URLs use `host.docker.internal`; override `BASE_URL` or `API_BASE_URL` when the application runs in another container or environment.
+
 ## Project Layout
 
 ```
